@@ -18,7 +18,7 @@ export const WelcomeStep = () => {
       <div>
         <Button>
           Get your username
-          <img className="d-ib ml-10" src="/static/arrow.svg" />
+          <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />
         </Button>
       </div>
       <div className="link mt-15 cup d-ib">Have an invite text? Sign in</div>

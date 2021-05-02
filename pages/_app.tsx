@@ -1,7 +1,9 @@
-import '../styles/globals.scss'
+import React from 'react';
+import type { AppProps } from 'next/app';
+import '../styles/globals.scss';
 import Head from 'next/head';
 
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -9,7 +11,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default App;

@@ -33,7 +33,7 @@ export const EnterNameStep = () => {
         </div>
         <Button disabled={nextDisabled}>
           Next
-          <img className="d-ib ml-10" src="/static/arrow.svg" />
+          <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />
         </Button>
       </WhiteBlock>
     </div>

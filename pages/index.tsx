@@ -1,9 +1,12 @@
-import { WelcomeStep } from '../components/steps/WelcomeStep';
+import React from 'react';
+import { EnterNameStep } from '../components/steps/EnterNameStep';
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
-      <WelcomeStep />
+      <EnterNameStep />
     </div>
-  )
-}
+  );
+};
+
+export default Home;

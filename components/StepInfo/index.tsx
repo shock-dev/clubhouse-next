@@ -8,11 +8,11 @@ interface StepInfoProps {
   icon: string;
 }
 
-export const StepInfo: React.FC<StepInfoProps> = ({
+export const StepInfo = ({
   title,
   description,
   icon
-}) => {
+}: StepInfoProps) => {
   return (
     <div className={clsx(styles.block, 'text-center')}>
       <div>
