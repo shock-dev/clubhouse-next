@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
+import { MainContext } from '../../../pages';
 
 import styles from './TwitterStep.module.scss';
 
 export const TwitterStep = () => {
+  const { onNextStep } = useContext(MainContext);
+
   return (
     <div className={styles.block}>
       <StepInfo icon="/static/connect.png" title="Do you want import info from Twitter?" />
@@ -27,7 +30,7 @@ export const TwitterStep = () => {
           </svg>
         </div>
         <h2 className="mb-40">Andrey Shock</h2>
-        <Button>
+        <Button onClick={onNextStep}>
           <img src="/static/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
           Import from Twitter
           <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />

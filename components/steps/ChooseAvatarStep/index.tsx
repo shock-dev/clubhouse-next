@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
@@ -6,8 +6,10 @@ import { StepInfo } from '../../StepInfo';
 import { Avatar } from '../../Avatar';
 
 import styles from './ChooseAvatarStep.module.scss';
+import { MainContext } from '../../../pages';
 
 export const ChooseAvatarStep: React.FC = () => {
+  const { onNextStep } = useContext(MainContext);
   const [avatarUrl, setAvatarUrl] = React.useState<string>(
     'https://sun9-15.userapi.com/impg/PmnLAr-xRXSzloN4DxAqPK0LQVwahjxK6JoCIg/lFaTr4xGyBg.jpg?size=744x619&quality=96&sign=7edeeb31fa3ea0039b71a35551a3e693&type=album'
   );
@@ -44,7 +46,7 @@ export const ChooseAvatarStep: React.FC = () => {
           </label>
         </div>
         <input id="image" ref={inputFileRef} type="file" hidden />
-        <Button>
+        <Button onClick={onNextStep}>
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />
         </Button>

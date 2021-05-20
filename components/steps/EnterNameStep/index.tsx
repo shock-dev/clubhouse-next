@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
 
 import styles from './EnterNameStep.module.scss';
+import { MainContext } from '../../../pages';
 
 export const EnterNameStep = () => {
+  const { onNextStep } = useContext(MainContext);
   const [inputValue, setInputValue] = React.useState<string>('');
 
   const nextDisabled = !inputValue;
@@ -31,7 +33,10 @@ export const EnterNameStep = () => {
             placeholder="Enter fullname"
           />
         </div>
-        <Button disabled={nextDisabled}>
+        <Button
+          onClick={onNextStep}
+          disabled={nextDisabled}
+        >
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />
         </Button>
