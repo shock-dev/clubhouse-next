@@ -10,18 +10,20 @@ import styles from './EnterPhoneStep.module.scss';
 
 export const EnterCodeStep = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [codes, setCodes] = React.useState(['', '', '', '']);
   const nextDisabled = codes.some((v) => !v);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const index = Number(event.target.getAttribute('id'));
     const value = event.target.value;
+
     setCodes((prev) => {
       const newArr = [...prev];
       newArr[index] = value;
       return newArr;
     });
+
     if (event.target.nextSibling) {
       (event.target.nextSibling as HTMLInputElement).focus();
     }
@@ -31,12 +33,12 @@ export const EnterCodeStep = () => {
     try {
       setIsLoading(true);
       await Axios.get('/todos');
-      router.push('/rooms');
+      await router.push('/rooms');
     } catch (error) {
       alert('Ошибка при активации!');
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (
