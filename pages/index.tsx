@@ -23,7 +23,7 @@ type MainContextProps = {
 export const MainContext = React.createContext<MainContextProps>({} as MainContextProps);
 
 const Home = () => {
-  const [step, setStep] = React.useState<number>(0);
+  const [step, setStep] = React.useState(0);
   const Step = stepsComponents[step];
 
   const onNextStep = () => {
