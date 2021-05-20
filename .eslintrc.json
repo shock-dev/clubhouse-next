@@ -45,6 +45,7 @@
     "linebreak-style": "off",
     "require-jsdoc": "off",
     "no-unused-vars": "off",
+    "new-cap": "off",
     "@typescript-eslint/no-unused-vars": "error"
   }
 }
