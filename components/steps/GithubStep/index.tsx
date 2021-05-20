@@ -5,9 +5,9 @@ import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
 import { MainContext } from '../../../pages';
 
-import styles from './TwitterStep.module.scss';
+import styles from './GithubStep.module.scss';
 
-export const TwitterStep = () => {
+export const GithubStep = () => {
   const { onNextStep } = useContext(MainContext);
 
   return (
@@ -30,10 +30,13 @@ export const TwitterStep = () => {
           </svg>
         </div>
         <h2 className="mb-40">Andrey Shock</h2>
-        <Button onClick={onNextStep}>
-          <img src="/static/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
-          Import from Twitter
-          <img className="d-ib ml-10" src="/static/arrow.svg" alt="Arrow" />
+        <Button
+          onClick={onNextStep}
+          className={clsx(styles.button, 'd-i-flex align-items-center')}
+        >
+          <img className="d-ib mr-10" src="/static/github.svg" />
+          Import from GitHub
+          <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
         <div className="link mt-20 cup d-ib">Enter my info manually</div>
       </WhiteBlock>
