@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import axios from '../core/axios';
-import { Header } from '../components/Header';
-import { Button } from '../components/Button';
-import { ConversationCard } from '../components/ConversationCard';
+import axios from '../../core/axios';
+import { Header } from '../../components/Header';
+import { Button } from '../../components/Button';
+import { ConversationCard } from '../../components/ConversationCard';
 
 export default function RoomsPage({ rooms = [] }: any) {
   return (
@@ -44,7 +44,6 @@ export const getServerSideProps = async () => {
       }
     };
   } catch (error) {
-    console.log('ERROR!');
     return {
       props: {
         rooms: []
