@@ -8,13 +8,17 @@ import styles from './EnterNameStep.module.scss';
 import { MainContext } from '../../../pages';
 
 export const EnterNameStep = () => {
-  const { onNextStep } = useContext(MainContext);
-  const [inputValue, setInputValue] = React.useState<string>('');
-
+  const { onNextStep, userData, setFieldValue } = useContext(MainContext);
+  const [inputValue, setInputValue] = React.useState(userData.fullname);
   const nextDisabled = !inputValue;
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+  };
+
+  const onClickNextStep = () => {
+    setFieldValue('fullname', inputValue);
+    onNextStep();
   };
 
   return (
@@ -34,7 +38,7 @@ export const EnterNameStep = () => {
           />
         </div>
         <Button
-          onClick={onNextStep}
+          onClick={onClickNextStep}
           disabled={nextDisabled}
         >
           Next
