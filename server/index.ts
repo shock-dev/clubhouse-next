@@ -10,6 +10,8 @@ dotenv.config({
   path: 'server/.env'
 });
 
+import authRoutes from './routes/auth';
+
 const app = express();
 const port = process.env.PORT;
 
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(passport.initialize());
+
+app.use('/auth', authRoutes);
 
 connect()
   .then(() => {
