@@ -8,25 +8,23 @@ import { MainContext } from '../../../pages';
 import styles from './GithubStep.module.scss';
 
 export const GithubStep = () => {
-  const { onNextStep } = useContext(MainContext);
+  const { onNextStep, setUserData } = useContext(MainContext);
 
   const onClickAuth = () => {
-    const win = window.open(
+    window.open(
       'http://localhost:5000/auth/github',
       'Auth',
       'width=500,height=500,status=yes,toolbar=no,menubar=no,location=no'
     );
-    const timer = setInterval(() => {
-      if (win.closed) {
-        clearInterval(timer);
-        onNextStep();
-      }
-    }, 100);
   };
 
   useEffect(() => {
-    window.addEventListener('message', (data) => {
-      console.log(data);
+    window.addEventListener('message', ({ data: user }) => {
+      if (typeof user === 'string' && user.includes('avatarUrl')) {
+        const json = JSON.parse(user);
+        setUserData(json);
+        onNextStep();
+      }
     });
   }, []);
 
