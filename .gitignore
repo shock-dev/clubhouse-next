@@ -1,4 +1,5 @@
 .idea
+public/avatars
 
 # dependencies
 /node_modules
