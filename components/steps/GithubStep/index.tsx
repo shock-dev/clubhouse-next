@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import clsx from 'clsx';
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
@@ -9,6 +9,26 @@ import styles from './GithubStep.module.scss';
 
 export const GithubStep = () => {
   const { onNextStep } = useContext(MainContext);
+
+  const onClickAuth = () => {
+    const win = window.open(
+      'http://localhost:5000/auth/github',
+      'Auth',
+      'width=500,height=500,status=yes,toolbar=no,menubar=no,location=no'
+    );
+    const timer = setInterval(() => {
+      if (win.closed) {
+        clearInterval(timer);
+        onNextStep();
+      }
+    }, 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('message', (data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className={styles.block}>
@@ -31,7 +51,7 @@ export const GithubStep = () => {
         </div>
         <h2 className="mb-40">Andrey Shock</h2>
         <Button
-          onClick={onNextStep}
+          onClick={onClickAuth}
           className={clsx(styles.button, 'd-i-flex align-items-center')}
         >
           <img className="d-ib mr-10" src="/static/github.svg" />
