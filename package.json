@@ -20,13 +20,15 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.10",
     "multer": "^1.4.2",
+    "nanoid": "^3.1.23",
     "next": "10.2.2",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-number-format": "^4.5.5",
-    "sass": "^1.32.13"
+    "sass": "^1.32.13",
+    "sharp": "^0.28.2"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
@@ -37,6 +39,7 @@
     "@types/passport": "^1.0.6",
     "@types/passport-github": "^1.1.5",
     "@types/react": "^17.0.6",
+    "@types/sharp": "^0.28.1",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "consola": "^2.15.3",
