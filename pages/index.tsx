@@ -8,8 +8,8 @@ import { EnterCodeStep } from '../components/steps/EnterCodeStep';
 
 const stepsComponents = {
   0: WelcomeStep,
-  1: EnterNameStep,
-  2: GithubStep,
+  1: GithubStep,
+  2: EnterNameStep,
   3: ChooseAvatarStep,
   4: EnterPhoneStep,
   5: EnterCodeStep
